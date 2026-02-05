@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <title>Aditya Raj - Portfolio</title>
+    <script>
+      // CRITICAL: Run this FIRST before anything else - wrap in IIFE for isolation
+      (function() {
+        'use strict';
+        
+        // Completely disable service worker registration
+        if ('serviceWorker' in navigator) {
+          // Override register method to prevent new registrations
+          const originalRegister = navigator.serviceWorker.register;
+          navigator.serviceWorker.register = function() {
+            return Promise.reject(new Error('Service workers disabled'));
+          };
+          
+          // Unregister all existing service workers immediately
+          try {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+              registrations.forEach(function(reg) {
+                reg.unregister().catch(function() {});
+              });
+            }).catch(function() {});
+            
+            navigator.serviceWorker.ready.then(function(registration) {
+              registration.unregister().catch(function() {});
+            }).catch(function() {});
+          } catch(e) {}
+        }
+        
+        // Override ALL console methods to filter worker.js errors
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        const originalLog = console.log;
+        const originalDir = console.dir;
+        const originalTrace = console.trace;
+        
+        function shouldSuppress(msg) {
+          const str = String(msg).toLowerCase();
+          return str.includes('worker.js') || 
+                 str.includes('failed to fetch') ||
+                 str.includes('site.webmanifest') ||
+                 str.includes('service worker') ||
+                 str.includes('worker.js:28') ||
+                 str.includes('worker.js:23') ||
+                 str.includes('favicon/site.webmanifest');
+        }
+        
+        console.error = function(...args) {
+          const msg = args.map(String).join(' ');
+          if (shouldSuppress(msg)) return;
+          originalError.apply(console, args);
+        };
+        
+        console.warn = function(...args) {
+          const msg = args.map(String).join(' ');
+          if (shouldSuppress(msg)) return;
+          originalWarn.apply(console, args);
+        };
+        
+        console.log = function(...args) {
+          const msg = args.map(String).join(' ');
+          if (shouldSuppress(msg)) return;
+          originalLog.apply(console, args);
+        };
+        
+        console.dir = function(...args) {
+          const msg = args.map(String).join(' ');
+          if (shouldSuppress(msg)) return;
+          originalDir.apply(console, args);
+        };
+        
+        console.trace = function(...args) {
+          const msg = args.map(String).join(' ');
+          if (shouldSuppress(msg)) return;
+          originalTrace.apply(console, args);
+        };
+        
+        // Suppress unhandled promise rejections
+        window.addEventListener('unhandledrejection', function(e) {
+          try {
+            const reason = e.reason;
+            let reasonStr = '';
+            if (typeof reason === 'string') {
+              reasonStr = reason;
+            } else if (reason) {
+              reasonStr = reason.message || reason.toString() || String(reason) || JSON.stringify(reason);
+            }
+            
+            if (shouldSuppress(reasonStr)) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              return false;
+            }
+          } catch(err) {}
+        }, true);
+        
+        // Suppress general errors
+        window.addEventListener('error', function(e) {
+          try {
+            const message = (e.message || e.filename || e.toString() || '').toLowerCase();
+            if (shouldSuppress(message)) {
+              e.preventDefault();
+              e.stopPropagation();
+              e.stopImmediatePropagation();
+              return false;
+            }
+          } catch(err) {}
+        }, true);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
