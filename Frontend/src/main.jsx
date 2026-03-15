@@ -48,6 +48,9 @@ if (typeof window !== 'undefined') {
   
   // Also run after a short delay to catch late errors
   setTimeout(suppressWorkerErrors, 100);
+
+  // Easter Egg for recruiters
+  console.log("%cHey Recruiter! Looking for a dev who cares about the details? Let's chat.", "color: #00ecff; font-size: 20px; font-weight: bold;");
 }
 
 createRoot(document.getElementById('root')).render(
