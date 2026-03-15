@@ -12,7 +12,13 @@
   }
 
   body {
-    @apply bg-slate-950 text-slate-200 antialiased;
+    @apply bg-slate-950 text-slate-200 antialiased leading-relaxed;
+    line-height: 1.6;
+  }
+
+  /* Custom Selection Color */
+  ::selection {
+    @apply bg-cyan-500/30 text-cyan-50;
   }
 
   /* Sleek Neon Scrollbar */
@@ -96,4 +102,41 @@
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
+}
+
+/* Mesh Background Animations */
+@keyframes blobPulse {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.3;
+  }
+}
+
+.animate-blob {
+  animation: blobPulse 20s infinite alternate ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  30%, 100% { transform: translateX(100%); }
 }

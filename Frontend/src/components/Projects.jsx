@@ -84,14 +84,13 @@ const Projects = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(400px,_auto)] gap-6 lg:gap-8"
                 >
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
                             variants={itemVariants}
-                            whileHover={{ y: -8 }}
-                            className="group flex flex-col bg-gradient-to-br from-slate-900/80 to-slate-800/40 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 relative"
+                            className={`group flex flex-col bg-[#111827]/70 backdrop-blur-lg border border-white/5 hover:border-cyan-500/30 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_-10px_rgba(6,182,212,0.3)] relative ${index === 0 ? 'md:col-span-2 lg:col-span-2 lg:row-span-2' : ''} ${(index === 3 && projects.length > 3) ? 'lg:col-span-2' : ''}`}
                         >
                             {/* Gradient overlay */}
                             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500 pointer-events-none" />
@@ -138,16 +137,21 @@ const Projects = () => {
 
                                 <div className="mt-auto space-y-5">
                                     {/* Tech Stack */}
+                                    {/* Tech Stack minimized for bento style */}
                                     <div className="flex flex-wrap gap-2">
-                                        {project.tech.map((tech) => (
-                                            <motion.span
+                                        {project.tech.slice(0, 4).map((tech) => (
+                                            <span
                                                 key={tech}
-                                                whileHover={{ scale: 1.1 }}
-                                                className="px-3 py-1 text-xs font-medium rounded-lg bg-white/5 text-slate-300 border border-white/10 group-hover:bg-gradient-to-r group-hover:from-blue-500/20 group-hover:to-purple-500/20 group-hover:text-white group-hover:border-blue-400/30 transition-all"
+                                                className="px-2.5 py-1 text-[11px] font-semibold tracking-wide uppercase rounded-md bg-white/5 text-slate-300 border border-white/10 group-hover:bg-cyan-500/10 group-hover:text-cyan-300 group-hover:border-cyan-500/20 transition-all"
                                             >
                                                 {tech}
-                                            </motion.span>
+                                            </span>
                                         ))}
+                                        {project.tech.length > 4 && (
+                                            <span className="px-2.5 py-1 text-[11px] font-semibold tracking-wide uppercase rounded-md bg-white/5 text-slate-400 border border-white/10 group-hover:border-white/20">
+                                                +{project.tech.length - 4}
+                                            </span>
+                                        )}
                                     </div>
 
                                     {/* Action Buttons */}
@@ -157,11 +161,13 @@ const Projects = () => {
                                                 href={project.demo}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
-                                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 hover:from-blue-400 hover:via-blue-300 hover:to-cyan-300 text-white text-sm font-bold shadow-xl shadow-blue-500/40 hover:shadow-blue-400/60 transition-all group/btn relative overflow-hidden ring-2 ring-blue-400/30 hover:ring-blue-300/50"
+                                                whileHover={{ scale: 1.02 }}
+                                                whileTap={{ scale: 0.98 }}
+                                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-cyan-600 via-blue-500 to-purple-600 hover:from-cyan-500 hover:via-blue-400 hover:to-purple-500 text-white text-sm font-bold shadow-lg shadow-cyan-500/25 transition-all group/btn relative overflow-hidden ring-1 ring-white/10 hover:ring-white/30"
                                             >
-                                                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                                                {/* Continuous 3s Shimmer Sweep */}
+                                                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmerSweep_3s_infinite]" />
+                                                
                                                 <ExternalLink size={14} className="relative z-10" />
                                                 <span className="relative z-10">Live Demo</span>
                                                 <ArrowRight size={14} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />

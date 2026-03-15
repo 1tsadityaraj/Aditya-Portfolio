@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, ArrowRight, Clock } from 'lucide-react';
+import MagneticButton from './MagneticButton';
 
 const Contact = () => {
     const contactLinks = [
@@ -70,7 +71,8 @@ const Contact = () => {
                     className="space-y-4 mb-10"
                 >
                     {contactLinks.map((link, index) => (
-                        <motion.a
+                        <MagneticButton
+                            as="a"
                             key={link.label}
                             href={link.href}
                             target={link.href.startsWith('mailto:') ? undefined : '_blank'}
@@ -80,7 +82,7 @@ const Contact = () => {
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + index * 0.1, type: "spring", stiffness: 100 }}
                             whileHover={{ x: 8, scale: 1.02 }}
-                            className={`group relative flex items-center gap-5 p-5 rounded-xl bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-sm border border-white/10 ${link.hoverColor} transition-all duration-300 overflow-hidden`}
+                            className={`group relative flex items-center gap-5 p-5 w-full rounded-xl bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-sm border border-white/10 ${link.hoverColor} transition-all duration-300 overflow-hidden`}
                         >
                             {/* Gradient overlay on hover */}
                             <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
@@ -95,7 +97,7 @@ const Contact = () => {
                             </motion.div>
 
                             {/* Content */}
-                            <div className="flex-1 relative z-10">
+                            <div className="flex-1 relative z-10 text-left">
                                 <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 group-hover:text-slate-400 transition-colors">
                                     {link.label}
                                 </div>
@@ -107,13 +109,10 @@ const Contact = () => {
                             {/* Arrow indicator */}
                             <motion.div
                                 className="relative z-10 text-slate-600 group-hover:text-white transition-colors"
-                                initial={{ x: -10, opacity: 0 }}
-                                whileHover={{ x: 0, opacity: 1 }}
-                                transition={{ duration: 0.2 }}
                             >
                                 <ArrowRight size={18} />
                             </motion.div>
-                        </motion.a>
+                        </MagneticButton>
                     ))}
                 </motion.div>
 

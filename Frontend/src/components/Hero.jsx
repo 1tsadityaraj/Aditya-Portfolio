@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Star } from 'lucide-react';
+import MagneticButton from './MagneticButton';
 
 const Hero = () => {
     // Floating particles animation
@@ -113,7 +114,8 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                     className="flex flex-col sm:flex-row gap-5 justify-center items-center"
                 >
-                    <motion.a
+                    <MagneticButton
+                        as="a"
                         href="#projects"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -122,9 +124,10 @@ const Hero = () => {
                         <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                         <span className="relative z-10">View Projects</span>
                         <ArrowRight size={20} className="relative z-10 group-hover:translate-x-1 transition-transform" />
-                    </motion.a>
+                    </MagneticButton>
 
-                    <motion.a
+                    <MagneticButton
+                        as="a"
                         href="https://github.com/1tsadityaraj"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -134,7 +137,7 @@ const Hero = () => {
                     >
                         <Github size={20} className="group-hover:rotate-12 transition-transform" />
                         <span>GitHub</span>
-                    </motion.a>
+                    </MagneticButton>
                 </motion.div>
 
                 {/* Enhanced Scroll Indicator */}
