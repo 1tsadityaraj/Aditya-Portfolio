@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "ClientFlow",
-    description: "Production-grade multitenant B2B SaaS platform with 4-tier RBAC, org-scoped data isolation, Kanban boards, and a white-label client portal — built for modern digital agencies.",
+    description: "Engineered a multitenant B2B SaaS platform solving agency-client collaboration chaos. Architected a 4-tier RBAC system with org-scoped data isolation using Prisma middleware, integrated Stripe billing with webhook-driven subscription management, and built a white-label client portal — all on a Next.js 15 monolith that deploys as a single unit.",
     tech: ["Next.js 15", "PostgreSQL", "Prisma", "NextAuth", "Stripe", "Redis"],
     github: "https://github.com/1tsadityaraj/ClientFlow",
     demo: "https://client-flow-sooty.vercel.app/",
@@ -12,7 +12,7 @@ export const projects = [
   {
     id: 2,
     title: "System Design Visualizer",
-    description: "SaaS-grade system architecture design tool with AI-powered suggestions, Chaos Engineering simulation, DevSecOps audit, Cloud Economics engine, and real-time collaboration.",
+    description: "Built a SaaS-grade architecture design tool to make system design concepts interactive and visual. Implemented an AI suggestion engine using prompt chaining, a Chaos Engineering simulator that stress-tests node failure scenarios, and real-time multi-user collaboration via Socket.io — handling concurrent diagram edits with conflict resolution.",
     tech: ["React", "Zustand", "React Flow", "Node.js", "MongoDB", "Socket.io"],
     github: "https://github.com/1tsadityaraj/System-Design-Visualizer",
     demo: "https://frontend-gamma-six-56.vercel.app/",
@@ -22,7 +22,7 @@ export const projects = [
   {
     id: 3,
     title: "AI Resume Analyzer",
-    description: "Full-stack ATS platform powered by Google Gemini AI that autonomously parses resumes, evaluates candidates against job requisitions, and surfaces top talent with analytics dashboards.",
+    description: "Developed a full-stack ATS platform to automate the manual resume screening bottleneck. Integrated Google Gemini AI for autonomous resume parsing and job-match scoring, built interactive analytics dashboards with Recharts, and implemented SWR-based caching that reduced redundant API calls — achieving sub-second processing times per resume.",
     tech: ["React 19", "Vite", "Node.js", "Express", "MongoDB", "Gemini AI"],
     github: "https://github.com/1tsadityaraj/ai-resume-analyzer",
     demo: "https://client-blue-xi.vercel.app/",
@@ -32,7 +32,7 @@ export const projects = [
   {
     id: 4,
     title: "InsightAI",
-    description: "Professional crypto trading intelligence platform combining real-time market data, technical analysis (SMA, EMA, RSI, MACD), AI-powered insights, and portfolio management.",
+    description: "Designed a professional crypto trading intelligence dashboard merging real-time market data with AI analysis. Orchestrated a FastAPI backend with Redis caching and background schedulers for live price feeds, implemented technical indicators (SMA, EMA, RSI, MACD) with interactive charting, and built an AI chat assistant powered by Gemini for natural-language market queries.",
     tech: ["React", "Vite", "FastAPI", "Python", "Redis", "Gemini AI"],
     github: "https://github.com/1tsadityaraj/INSIGHTAI",
     demo: "https://insightai-teal.vercel.app/",
@@ -42,7 +42,7 @@ export const projects = [
   {
     id: 5,
     title: "ShopEasy",
-    description: "E-commerce web app built using React to practice product listing, cart functionality, and state management.",
+    description: "Built a full-featured e-commerce storefront with product listing, cart management, and persistent state — focusing on component architecture patterns and scalable React state management.",
     tech: ["React", "JavaScript", "MongoDB"],
     github: "https://github.com/1tsadityaraj/ShopEasy",
     demo: "https://shop-easy-cyan-nu.vercel.app/",
@@ -52,7 +52,7 @@ export const projects = [
   {
     id: 6,
     title: "Chat Application",
-    description: "Real-time chat application built using Socket.io to understand WebSocket communication.",
+    description: "Engineered a real-time messaging app using WebSocket protocol via Socket.io, handling bidirectional event-driven communication between multiple clients with instant message delivery.",
     tech: ["React", "Node.js", "Socket.io"],
     github: "https://github.com/1tsadityaraj/CHAT-APPLICATION",
     demo: "https://chat-application-drab-sigma.vercel.app/login",
@@ -62,7 +62,7 @@ export const projects = [
   {
     id: 7,
     title: "ClearCut",
-    description: "Background removal web app built as a frontend project using React and an external image processing API.",
+    description: "Developed a background removal tool integrating an external image processing API, with drag-and-drop upload, real-time preview, and optimized image handling for seamless UX.",
     tech: ["React", "JavaScript"],
     github: "https://github.com/1tsadityaraj/CLEARCUT",
     demo: "https://clearcut-client.vercel.app/",
@@ -72,7 +72,7 @@ export const projects = [
   {
     id: 8,
     title: "AI Product Recommendation",
-    description: "Simple product recommendation project built to understand basic recommendation logic using Python.",
+    description: "Implemented a recommendation engine using collaborative filtering logic in Python, exposing predictions via a REST API to understand the fundamentals of ML-driven personalization.",
     tech: ["Python"],
     github: "https://github.com/1tsadityaraj/ai-product-recommendation-system",
     demo: "https://ai-product-recommendation-system-mu.vercel.app/",
@@ -80,9 +80,9 @@ export const projects = [
     featured: false
   },
   {
-    id: 10,
+    id: 9,
     title: "Weather Data Scraper",
-    description: "Script that fetches and processes weather-related data for learning web scraping and data handling.",
+    description: "Built an automated weather data pipeline that scrapes, processes, and visualizes meteorological data — learning web scraping patterns, API integration, and structured data handling.",
     tech: ["JavaScript"],
     github: "https://github.com/1tsadityaraj/Weather-Data-Scraper",
     demo: "https://weather-data-scraper-5xom.vercel.app/",
@@ -90,3 +90,4 @@ export const projects = [
     featured: false
   }
 ];
+

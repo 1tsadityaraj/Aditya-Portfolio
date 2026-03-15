@@ -159,10 +159,12 @@ const Projects = () => {
                                                 rel="noopener noreferrer"
                                                 whileHover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
-                                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white text-sm font-semibold shadow-lg shadow-blue-500/30 transition-all group/btn"
+                                                className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400 hover:from-blue-400 hover:via-blue-300 hover:to-cyan-300 text-white text-sm font-bold shadow-xl shadow-blue-500/40 hover:shadow-blue-400/60 transition-all group/btn relative overflow-hidden ring-2 ring-blue-400/30 hover:ring-blue-300/50"
                                             >
-                                                <span>Live Demo</span>
-                                                <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+                                                <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/30 to-white/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                                                <ExternalLink size={14} className="relative z-10" />
+                                                <span className="relative z-10">Live Demo</span>
+                                                <ArrowRight size={14} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
                                             </motion.a>
                                         ) : (
                                             <div className="flex-1" />

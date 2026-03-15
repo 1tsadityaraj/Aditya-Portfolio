@@ -11,8 +11,8 @@ const About = () => {
     ];
 
     const highlights = [
-        { icon: <Target size={20} />, title: 'Focus', desc: 'Web Development', color: 'border-blue-500' },
-        { icon: <Rocket size={20} />, title: 'Goal', desc: 'Software Engineer Role', color: 'border-purple-500' },
+        { icon: <Target size={20} />, title: '9+ Projects', desc: 'Shipped & Deployed', color: 'border-blue-500' },
+        { icon: <Rocket size={20} />, title: '4 SaaS Apps', desc: 'Full Stack, Production-Grade', color: 'border-purple-500' },
     ];
 
     return (
@@ -59,7 +59,7 @@ const About = () => {
                             transition={{ delay: 0.1 }}
                             className="text-slate-300 text-lg md:text-xl leading-relaxed"
                         >
-                            I am a passionate <span className="text-blue-400 font-semibold">MERN stack developer</span> with a strong focus on building clean, functional web applications. My journey started with a curiosity for how things work on the web, which led me to dive deep into <span className="text-purple-400 font-semibold">React</span> for frontend and <span className="text-emerald-400 font-semibold">Node.js</span> for backend development.
+                            I don't just build CRUD apps — I engineer <span className="text-blue-400 font-semibold">production-grade, multitenant platforms</span> with role-based access control, org-scoped data isolation, and real-time collaboration. From a <span className="text-purple-400 font-semibold">SaaS client portal</span> with Stripe billing to a <span className="text-emerald-400 font-semibold">system design tool</span> with AI-powered architecture linting, every project I build is deployed and battle-tested.
                         </motion.p>
                         <motion.p 
                             initial={{ opacity: 0, x: -20 }}
@@ -68,7 +68,7 @@ const About = () => {
                             transition={{ delay: 0.2 }}
                             className="text-slate-300 text-lg md:text-xl leading-relaxed"
                         >
-                            Currently, I am refining my problem-solving skills by practicing <span className="text-orange-400 font-semibold">Data Structures & Algorithms</span> in Java and Python. I'm also actively exploring <span className="text-pink-400 font-semibold">Generative AI and LLMs</span> to understand how to integrate intelligent features into my projects. I am looking for internships or entry-level roles to kickstart my career.
+                            Beyond full-stack development, I sharpen my problem-solving through <span className="text-orange-400 font-semibold">Data Structures & Algorithms</span> in Java and Python. I've integrated <span className="text-pink-400 font-semibold">Google Gemini AI</span> into multiple production apps — from resume parsing to crypto market analysis — proving I can bridge the gap between AI capabilities and real user needs. I'm ready to own features end-to-end at a team that values engineering depth.
                         </motion.p>
 
                         <motion.div 

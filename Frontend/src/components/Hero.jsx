@@ -102,9 +102,9 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                     className="text-xl md:text-2xl lg:text-3xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
                 >
-                    <span className="text-white font-medium">MERN Stack Developer</span>
-                    <span className="mx-3 text-slate-500">|</span>
-                    <span>Building practical web applications and learning backend & AI fundamentals</span>
+                    <span className="text-white font-medium">Full Stack Developer</span>
+                    <span className="mx-3 text-slate-500">•</span>
+                    <span>I ship production-grade SaaS platforms with RBAC, real-time systems & AI integrations</span>
                 </motion.p>
 
                 <motion.div
