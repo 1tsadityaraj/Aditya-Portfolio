@@ -90,7 +90,7 @@ const Hero = () => {
                     <img 
                         src="/profile.jpg" 
                         alt="Aditya Raj" 
-                        className="absolute inset-[6px] w-[calc(100%-12px)] h-[calc(100%-12px)] rounded-full object-cover transition-all duration-500 group-hover:scale-105 z-10"
+                        className="absolute inset-[6px] w-[calc(100%-12px)] h-[calc(100%-12px)] rounded-full object-cover transition-all duration-500 group-hover:scale-105 z-10 contrast-125 saturate-[1.1] brightness-105 sepia-[.15] hue-rotate-[-5deg]"
                         onError={(e) => {
                             e.target.style.display = 'none';
                             e.target.nextElementSibling.style.display = 'flex';
