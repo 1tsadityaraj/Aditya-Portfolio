@@ -73,7 +73,41 @@ const Hero = () => {
                 ))}
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+            <div className="max-w-7xl mx-auto px-6 text-center relative z-10 pt-10">
+                {/* Professional Profile Avatar */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
+                    className="relative w-36 h-36 mx-auto mb-6 group"
+                >
+                    {/* Animated spinning gradient border */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-[spin_4s_linear_infinite] group-hover:animate-[spin_2s_linear_infinite]" aria-hidden="true" />
+                    {/* Inner hollow background */}
+                    <div className="absolute inset-[3px] bg-slate-950 rounded-full" aria-hidden="true" />
+                    
+                    {/* Profile Image (fallback to fallback div if not found) */}
+                    <img 
+                        src="/profile.jpg" 
+                        alt="Aditya Raj" 
+                        className="absolute inset-[6px] w-[calc(100%-12px)] h-[calc(100%-12px)] rounded-full object-cover transition-all duration-500 group-hover:scale-105 z-10"
+                        onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextElementSibling.style.display = 'flex';
+                        }}
+                    />
+                    
+                    {/* Fallback if image not yet placed */}
+                    <div className="hidden absolute inset-[6px] w-[calc(100%-12px)] h-[calc(100%-12px)] rounded-full bg-slate-800 flex-col items-center justify-center text-slate-400 text-sm font-medium z-10 text-center px-2">
+                        <span>Drop<br/>profile.jpg<br/>here</span>
+                    </div>
+
+                    {/* Online animated indicator */}
+                    <div className="absolute bottom-2 right-3 w-5 h-5 bg-green-500 rounded-full border-[3px] border-slate-950 shadow-[0_0_12px_rgba(34,197,94,0.6)] z-20" title="Available for work">
+                        <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
+                    </div>
+                </motion.div>
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
