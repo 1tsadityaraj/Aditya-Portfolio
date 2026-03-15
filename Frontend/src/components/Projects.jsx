@@ -92,7 +92,7 @@ const Projects = () => {
                         <motion.article
                             key={project.id}
                             variants={itemVariants}
-                            className={`group flex flex-col bg-[#111827]/70 backdrop-blur-lg border border-white/5 hover:border-cyan-500/30 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_-10px_rgba(6,182,212,0.3)] relative ${index === 0 ? 'md:col-span-2 lg:col-span-2 lg:row-span-2' : ''} ${(index === 3 && projects.length > 3) ? 'lg:col-span-2' : ''}`}
+                            className={`group flex flex-col bg-[#111827]/70 backdrop-blur-lg border border-white/5 hover:border-cyan-500/30 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_40px_-10px_rgba(6,182,212,0.3)] relative ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''} ${(index === 3 && projects.length > 3) ? 'lg:col-span-2' : ''}`}
                             role="listitem"
                         >
                             {/* Gradient overlay — decorative */}
@@ -126,7 +126,7 @@ const Projects = () => {
                             </div>
 
                             <div className="p-6 flex flex-col flex-1 relative z-10">
-                                <div className="mb-4">
+                                <div className="mb-4 flex-1">
                                     <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
                                         {project.title}
                                     </h3>
@@ -154,7 +154,7 @@ const Projects = () => {
                                     </div>
 
                                     {/* Action Buttons */}
-                                    <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                                    <div className="flex items-center gap-3 pt-4 border-t border-white/10 mt-auto">
                                         {project.demo ? (
                                             <motion.a
                                                 href={project.demo}
