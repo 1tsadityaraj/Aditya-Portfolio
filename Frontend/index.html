@@ -4,121 +4,97 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22central%22 text-anchor=%22middle%22 font-size=%2270%22 font-weight=%22bold%22 font-family=%22monospace%22 fill=%22%233b82f6%22>&gt;_</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#3b82f6" />
-    <meta name="mobile-web-app-capable" content="no" />
-    <meta name="apple-mobile-web-app-capable" content="no" />
-    <title>Aditya Raj - Portfolio</title>
+    <meta name="theme-color" content="#020617" />
+
+    <!-- Primary SEO Meta Tags -->
+    <title>Aditya Raj | Full Stack Developer — React, Node.js, AI & SaaS</title>
+    <meta name="description" content="Aditya Raj is a Full Stack Developer who builds production-grade SaaS platforms with RBAC, real-time systems & AI integrations. Explore 9+ deployed projects built with React, Node.js, Next.js, and Gemini AI." />
+    <meta name="keywords" content="Aditya Raj, Full Stack Developer, React Developer, Node.js, Next.js, MERN Stack, SaaS, Portfolio, AI Integration, Gemini AI" />
+    <meta name="author" content="Aditya Raj" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://adityaraj.dev/" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adityaraj.dev/" />
+    <meta property="og:title" content="Aditya Raj | Full Stack Developer — React, Node.js, AI & SaaS" />
+    <meta property="og:description" content="I ship production-grade SaaS platforms with RBAC, real-time systems & AI integrations. Explore 9+ deployed projects." />
+    <meta property="og:image" content="https://adityaraj.dev/og-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Aditya Raj — Full Stack Developer Portfolio Preview" />
+    <meta property="og:site_name" content="Aditya Raj Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://adityaraj.dev/" />
+    <meta name="twitter:title" content="Aditya Raj | Full Stack Developer — React, Node.js, AI & SaaS" />
+    <meta name="twitter:description" content="I ship production-grade SaaS platforms with RBAC, real-time systems & AI integrations. 9+ deployed projects." />
+    <meta name="twitter:image" content="https://adityaraj.dev/og-preview.png" />
+    <meta name="twitter:image:alt" content="Aditya Raj — Full Stack Developer Portfolio Preview" />
+
+    <!-- Structured Data (JSON-LD) for Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aditya Raj",
+      "url": "https://adityaraj.dev",
+      "jobTitle": "Full Stack Developer",
+      "sameAs": [
+        "https://github.com/1tsadityaraj",
+        "https://linkedin.com/in/aditya-raj-a1b925285"
+      ],
+      "email": "heyitsadityaraj@gmail.com",
+      "knowsAbout": ["React", "Node.js", "Next.js", "MongoDB", "Python", "FastAPI", "Prisma", "Tailwind CSS", "AI Integration"]
+    }
+    </script>
+
+    <!-- Google Fonts — preconnect speeds up font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <script>
-      // CRITICAL: Run this FIRST before anything else - wrap in IIFE for isolation
+      // Service worker cleanup — IIFE for isolation
       (function() {
         'use strict';
-        
-        // Completely disable service worker registration
         if ('serviceWorker' in navigator) {
-          // Override register method to prevent new registrations
-          const originalRegister = navigator.serviceWorker.register;
           navigator.serviceWorker.register = function() {
             return Promise.reject(new Error('Service workers disabled'));
           };
-          
-          // Unregister all existing service workers immediately
           try {
             navigator.serviceWorker.getRegistrations().then(function(registrations) {
-              registrations.forEach(function(reg) {
-                reg.unregister().catch(function() {});
-              });
-            }).catch(function() {});
-            
-            navigator.serviceWorker.ready.then(function(registration) {
-              registration.unregister().catch(function() {});
+              registrations.forEach(function(reg) { reg.unregister().catch(function() {}); });
             }).catch(function() {});
           } catch(e) {}
         }
-        
-        // Override ALL console methods to filter worker.js errors
-        const originalError = console.error;
-        const originalWarn = console.warn;
-        const originalLog = console.log;
-        const originalDir = console.dir;
-        const originalTrace = console.trace;
-        
+
+        // Error suppression for stale worker artifacts
         function shouldSuppress(msg) {
-          const str = String(msg).toLowerCase();
-          return str.includes('worker.js') || 
-                 str.includes('failed to fetch') ||
-                 str.includes('site.webmanifest') ||
-                 str.includes('service worker') ||
-                 str.includes('worker.js:28') ||
-                 str.includes('worker.js:23') ||
-                 str.includes('favicon/site.webmanifest');
+          var str = String(msg).toLowerCase();
+          return str.includes('worker.js') || str.includes('site.webmanifest') || str.includes('service worker');
         }
-        
-        console.error = function(...args) {
-          const msg = args.map(String).join(' ');
-          if (shouldSuppress(msg)) return;
-          originalError.apply(console, args);
+        var origError = console.error;
+        console.error = function() {
+          var msg = Array.prototype.map.call(arguments, String).join(' ');
+          if (!shouldSuppress(msg)) origError.apply(console, arguments);
         };
-        
-        console.warn = function(...args) {
-          const msg = args.map(String).join(' ');
-          if (shouldSuppress(msg)) return;
-          originalWarn.apply(console, args);
-        };
-        
-        console.log = function(...args) {
-          const msg = args.map(String).join(' ');
-          if (shouldSuppress(msg)) return;
-          originalLog.apply(console, args);
-        };
-        
-        console.dir = function(...args) {
-          const msg = args.map(String).join(' ');
-          if (shouldSuppress(msg)) return;
-          originalDir.apply(console, args);
-        };
-        
-        console.trace = function(...args) {
-          const msg = args.map(String).join(' ');
-          if (shouldSuppress(msg)) return;
-          originalTrace.apply(console, args);
-        };
-        
-        // Suppress unhandled promise rejections
         window.addEventListener('unhandledrejection', function(e) {
           try {
-            const reason = e.reason;
-            let reasonStr = '';
-            if (typeof reason === 'string') {
-              reasonStr = reason;
-            } else if (reason) {
-              reasonStr = reason.message || reason.toString() || String(reason) || JSON.stringify(reason);
-            }
-            
-            if (shouldSuppress(reasonStr)) {
-              e.preventDefault();
-              e.stopPropagation();
-              e.stopImmediatePropagation();
-              return false;
-            }
-          } catch(err) {}
-        }, true);
-        
-        // Suppress general errors
-        window.addEventListener('error', function(e) {
-          try {
-            const message = (e.message || e.filename || e.toString() || '').toLowerCase();
-            if (shouldSuppress(message)) {
-              e.preventDefault();
-              e.stopPropagation();
-              e.stopImmediatePropagation();
-              return false;
-            }
+            var r = e.reason;
+            if (r && shouldSuppress(r.message || String(r))) { e.preventDefault(); }
           } catch(err) {}
         }, true);
       })();
     </script>
   </head>
   <body>
+    <!-- Accessible skip-to-content link for keyboard users (hidden visually, visible on focus) -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+      Skip to main content
+    </a>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

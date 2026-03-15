@@ -4,12 +4,12 @@ import { Heart, Code2 } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="py-12 bg-slate-950 border-t border-white/10 relative overflow-hidden">
-            {/* Subtle background effect */}
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-500/5 via-purple-500/5 to-transparent pointer-events-none" />
+        <footer className="py-12 bg-slate-950 border-t border-white/10 relative overflow-hidden" role="contentinfo">
+            {/* Subtle background effect — decorative */}
+            <div className="absolute inset-0 bg-gradient-to-t from-blue-500/5 via-purple-500/5 to-transparent pointer-events-none" aria-hidden="true" />
             
             {/* Decorative line */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
             
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -31,11 +31,12 @@ const Footer = () => {
                         <motion.span
                             animate={{ rotate: [0, 10, -10, 0] }}
                             transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                            aria-hidden="true"
                         >
                             <Heart size={16} className="text-red-500 fill-red-500" />
                         </motion.span>
                         <span>using</span>
-                        <Code2 size={16} className="text-blue-400" />
+                        <Code2 size={16} className="text-blue-400" aria-hidden="true" />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 font-semibold">
                             React & Tailwind CSS
                         </span>

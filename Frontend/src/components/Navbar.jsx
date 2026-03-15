@@ -11,7 +11,6 @@ const Navbar = () => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
             
-            // Update active section based on scroll position
             const sections = ['home', 'about', 'projects', 'skills', 'contact'];
             const scrollPosition = window.scrollY + 100;
             
@@ -27,8 +26,8 @@ const Navbar = () => {
             }
         };
         
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Initial check
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -49,19 +48,22 @@ const Navbar = () => {
                     ? 'glass py-4 shadow-2xl shadow-black/20 backdrop-blur-xl border-b border-white/5' 
                     : 'bg-transparent py-6'
             }`}
+            role="navigation"
+            aria-label="Main navigation"
         >
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                 <motion.a 
                     href="#home"
                     whileHover={{ scale: 1.05 }}
                     className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-300 hover:via-purple-400 hover:to-pink-400 transition-all relative group"
+                    aria-label="Aditya Raj — back to top"
                 >
                     <span className="relative z-10">Aditya.dev</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" aria-hidden="true" />
                 </motion.a>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-2">
+                <div className="hidden md:flex items-center space-x-2" role="menubar">
                     {navLinks.map((link) => {
                         const isActive = activeSection === link.id;
                         return (
@@ -74,6 +76,8 @@ const Navbar = () => {
                                         ? 'text-white' 
                                         : 'text-slate-300 hover:text-white'
                                 }`}
+                                role="menuitem"
+                                aria-current={isActive ? 'true' : undefined}
                             >
                                 <span className="relative z-10">{link.name}</span>
                                 {isActive && (
@@ -82,6 +86,7 @@ const Navbar = () => {
                                         className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-white/10 -z-10"
                                         initial={false}
                                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                                        aria-hidden="true"
                                     />
                                 )}
                                 {!isActive && (
@@ -91,6 +96,7 @@ const Navbar = () => {
                                             background: 'linear-gradient(to right, rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.5), rgba(236, 72, 153, 0.5))'
                                         }}
                                         transition={{ duration: 0.3 }}
+                                        aria-hidden="true"
                                     />
                                 )}
                             </motion.a>
@@ -103,8 +109,9 @@ const Navbar = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="ml-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/30 hover:to-purple-500/30 text-white px-5 py-2 rounded-full transition-all flex items-center gap-2 border border-white/10 backdrop-blur-sm shadow-lg"
+                        aria-label="View GitHub profile (opens in new tab)"
                     >
-                        <Github size={18} />
+                        <Github size={18} aria-hidden="true" />
                         <span>GitHub</span>
                     </motion.a>
                 </div>
@@ -114,8 +121,11 @@ const Navbar = () => {
                     className="md:hidden text-slate-200 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
                     whileTap={{ scale: 0.95 }}
+                    aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                    aria-expanded={isOpen}
+                    aria-controls="mobile-menu"
                 >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
                 </motion.button>
             </div>
 
@@ -123,11 +133,13 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
+                        id="mobile-menu"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.3 }}
                         className="md:hidden glass border-t border-white/10 backdrop-blur-xl"
+                        role="menu"
                     >
                         <div className="flex flex-col p-6 space-y-3">
                             {navLinks.map((link, index) => (
@@ -141,6 +153,7 @@ const Navbar = () => {
                                         activeSection === link.id ? 'bg-white/10 text-white' : ''
                                     }`}
                                     onClick={() => setIsOpen(false)}
+                                    role="menuitem"
                                 >
                                     {link.name}
                                 </motion.a>
@@ -153,8 +166,9 @@ const Navbar = () => {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors"
+                                    aria-label="GitHub (opens in new tab)"
                                 >
-                                    <Github size={20} className="text-slate-300" />
+                                    <Github size={20} className="text-slate-300" aria-hidden="true" />
                                 </motion.a>
                                 <motion.a 
                                     href="https://linkedin.com/in/aditya-raj-a1b925285"
@@ -163,16 +177,18 @@ const Navbar = () => {
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors"
+                                    aria-label="LinkedIn (opens in new tab)"
                                 >
-                                    <Linkedin size={20} className="text-slate-300" />
+                                    <Linkedin size={20} className="text-slate-300" aria-hidden="true" />
                                 </motion.a>
                                 <motion.a 
                                     href="mailto:heyitsadityaraj@gmail.com"
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                     className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors"
+                                    aria-label="Send email to heyitsadityaraj@gmail.com"
                                 >
-                                    <Mail size={20} className="text-slate-300" />
+                                    <Mail size={20} className="text-slate-300" aria-hidden="true" />
                                 </motion.a>
                             </div>
                         </div>
