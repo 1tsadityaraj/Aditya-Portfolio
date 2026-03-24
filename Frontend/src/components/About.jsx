@@ -1,134 +1,165 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Server, Database, Brain, Target, Rocket } from 'lucide-react';
 
 const About = () => {
-    const stats = [
-        { icon: <Code size={28} />, label: 'Frontend', value: 'React & Tailwind', color: 'from-blue-500/20 to-cyan-500/20', iconColor: 'text-blue-400' },
-        { icon: <Server size={28} />, label: 'Backend', value: 'Node.js & Express', color: 'from-purple-500/20 to-pink-500/20', iconColor: 'text-purple-400' },
-        { icon: <Database size={28} />, label: 'Database', value: 'MongoDB', color: 'from-emerald-500/20 to-teal-500/20', iconColor: 'text-emerald-400' },
-        { icon: <Brain size={28} />, label: 'Learning', value: 'DSA & AI Basics', color: 'from-orange-500/20 to-amber-500/20', iconColor: 'text-orange-400' },
-    ];
-
-    const highlights = [
-        { icon: <Target size={20} />, title: '9+ Projects', desc: 'Shipped & Deployed', color: 'border-blue-500' },
-        { icon: <Rocket size={20} />, title: '4 SaaS Apps', desc: 'Full Stack, Production-Grade', color: 'border-purple-500' },
+    const stack = [
+        { label: 'Frontend', tech: 'React · Tailwind' },
+        { label: 'Backend', tech: 'Node.js · Express' },
+        { label: 'Database', tech: 'MongoDB' },
+        { label: 'Currently into', tech: 'DSA · AI Integration' },
     ];
 
     return (
         <section id="about" className="py-24 bg-slate-950 relative overflow-hidden">
             {/* Section Divider */}
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            
-            {/* Background Effects */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] -z-10" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] -z-10" />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            {/* Subtle background glow — muted, not SaaS-loud */}
+            <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-slate-800/30 rounded-full blur-[160px] -z-10" />
+
+            <div className="max-w-3xl mx-auto px-6 relative z-10">
+                {/* Heading */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-12"
                 >
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-bold mb-4 text-white"
-                    >
-                        About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Me</span>
-                    </motion.h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
+                    <h2 className="text-3xl md:text-4xl font-bold text-white">
+                        About <span className="italic font-normal text-slate-400">me</span>
+                    </h2>
                 </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                    className="grid md:grid-cols-2 gap-16 items-center"
+                {/* Body copy — casual, first-person, honest */}
+                <div className="space-y-6 mb-10">
+                    <motion.p
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1, duration: 0.5 }}
+                        className="text-slate-300 text-lg leading-relaxed"
+                    >
+                        I didn't start with a roadmap. I just kept building things until they got good enough
+                        to ship. Most of my projects began as{' '}
+                        <strong className="text-white">"what if I tried to make this work"</strong> — and
+                        somewhere along the way they became{' '}
+                        <span className="text-slate-200 underline decoration-slate-600 underline-offset-4">
+                            production apps
+                        </span>{' '}
+                        with real users.
+                    </motion.p>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.15, duration: 0.5 }}
+                        className="text-slate-300 text-lg leading-relaxed"
+                    >
+                        Right now I'm deep into systems that actually scale —{' '}
+                        <span className="text-slate-200 underline decoration-slate-600 underline-offset-4">
+                            multi-tenant architecture
+                        </span>
+                        , role-based access, org-scoped data. Not because a course told me to, but because
+                        I hit those walls myself and had to figure them out.
+                    </motion.p>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.5 }}
+                        className="text-slate-300 text-lg leading-relaxed"
+                    >
+                        I've wired up{' '}
+                        <span className="text-amber-400/90">Gemini AI</span> into a few real products — one
+                        does resume parsing, another tracks crypto signals. It's the kind of work that makes
+                        you realise the gap between "AI demo" and "AI in production" is massive.
+                    </motion.p>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.25, duration: 0.5 }}
+                        className="text-slate-300 text-lg leading-relaxed"
+                    >
+                        Outside of building, I spend a lot of time with{' '}
+                        <span className="text-slate-200">DSA in Java and Python</span>. Not to pass
+                        interviews — though that helps — but because thinking in algorithms genuinely
+                        changes how you write code.
+                    </motion.p>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="text-slate-400 text-lg leading-relaxed"
+                    >
+                        I care about owning features end-to-end. Frontend to DB, Stripe to deployment. If
+                        something's broken, I'd rather trace it myself than pass it on.
+                    </motion.p>
+                </div>
+
+                {/* Honest quote — serif italic */}
+                <motion.blockquote
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.35, duration: 0.6 }}
+                    className="border-l-2 border-slate-700 pl-5 my-10"
                 >
-                    {/* Left Column: Text */}
-                    <div className="space-y-6">
-                        <motion.p 
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="text-slate-300 text-lg md:text-xl leading-relaxed"
-                        >
-                            I don't just build CRUD apps — I engineer <span className="text-blue-400 font-semibold">production-grade, multitenant platforms</span> with role-based access control, org-scoped data isolation, and real-time collaboration. From a <span className="text-purple-400 font-semibold">SaaS client portal</span> with Stripe billing to a <span className="text-emerald-400 font-semibold">system design tool</span> with AI-powered architecture linting, every project I build is deployed and battle-tested.
-                        </motion.p>
-                        <motion.p 
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="text-slate-300 text-lg md:text-xl leading-relaxed"
-                        >
-                            Beyond full-stack development, I sharpen my problem-solving through <span className="text-orange-400 font-semibold">Data Structures & Algorithms</span> in Java and Python. I've integrated <span className="text-pink-400 font-semibold">Google Gemini AI</span> into multiple production apps — from resume parsing to crypto market analysis — proving I can bridge the gap between AI capabilities and real user needs. I'm ready to own features end-to-end at a team that values engineering depth.
-                        </motion.p>
+                    <p
+                        className="text-slate-500 text-base italic leading-relaxed"
+                        style={{ fontFamily: "'Lora', 'Georgia', serif" }}
+                    >
+                        "Most of what I know, I learned by breaking something first and then
+                        spending two hours figuring out why."
+                    </p>
+                </motion.blockquote>
 
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 }}
-                            className="flex flex-col sm:flex-row gap-6 pt-4"
-                        >
-                            {highlights.map((highlight, index) => (
-                                <motion.div
-                                    key={index}
-                                    whileHover={{ scale: 1.05, x: 5 }}
-                                    className={`pl-5 border-l-4 ${highlight.color} bg-gradient-to-r from-white/5 to-transparent p-4 rounded-r-lg backdrop-blur-sm`}
-                                >
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="text-blue-400">{highlight.icon}</div>
-                                        <h3 className="text-xl font-bold text-white">{highlight.title}</h3>
-                                    </div>
-                                    <p className="text-slate-400 ml-8">{highlight.desc}</p>
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    </div>
-
-                    {/* Right Column: Cards/Visuals */}
-                    <div className="grid grid-cols-2 gap-5">
-                        {stats.map((item, index) => (
+                {/* Stack — slim horizontal strips, not icon card grid */}
+                <motion.div
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="border-t border-slate-800/60 pt-8 mt-8"
+                >
+                    <div className="space-y-0">
+                        {stack.map((item, i) => (
                             <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
-                                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                                key={item.label}
+                                initial={{ opacity: 0, x: -8 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.05, y: -5, rotateY: 5 }}
-                                className="group relative p-6 rounded-2xl bg-gradient-to-br from-slate-900/80 to-slate-800/40 border border-white/10 hover:border-white/20 transition-all backdrop-blur-sm overflow-hidden cursor-default"
+                                transition={{ delay: 0.45 + i * 0.06, duration: 0.4 }}
+                                className="flex items-center justify-between py-3 border-b border-slate-800/40 group"
                             >
-                                {/* Gradient overlay on hover */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                                
-                                <div className="relative z-10 flex flex-col items-center text-center gap-4">
-                                    <motion.div 
-                                        className={`p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 group-hover:scale-110 transition-transform ${item.iconColor}`}
-                                        whileHover={{ rotate: 360 }}
-                                        transition={{ duration: 0.6 }}
-                                    >
-                                        {item.icon}
-                                    </motion.div>
-                                    <div>
-                                        <h4 className="font-bold text-white text-lg mb-1 group-hover:text-blue-200 transition-colors">
-                                            {item.label}
-                                        </h4>
-                                        <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
-                                            {item.value}
-                                        </p>
-                                    </div>
-                                </div>
+                                <span className="text-sm text-slate-500 uppercase tracking-wider font-medium">
+                                    {item.label}
+                                </span>
+                                <span className="text-sm text-slate-300 group-hover:text-slate-200 transition-colors duration-200">
+                                    {item.tech}
+                                </span>
                             </motion.div>
                         ))}
                     </div>
+                </motion.div>
+
+                {/* Stats — quiet, bottom of section */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                    className="flex gap-8 mt-10 text-sm text-slate-600"
+                >
+                    <span>9+ projects shipped</span>
+                    <span className="text-slate-800">·</span>
+                    <span>4 full-stack SaaS apps</span>
                 </motion.div>
             </div>
         </section>
