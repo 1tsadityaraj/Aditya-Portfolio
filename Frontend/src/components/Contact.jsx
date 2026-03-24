@@ -1,152 +1,105 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, ArrowRight, Clock } from 'lucide-react';
-import MagneticButton from './MagneticButton';
+import { Mail, Github, Linkedin } from 'lucide-react';
+
+const links = [
+    {
+        icon: Mail,
+        label: 'Email',
+        value: 'heyitsadityaraj@gmail.com',
+        href: 'mailto:heyitsadityaraj@gmail.com',
+        note: 'Best way to reach me',
+    },
+    {
+        icon: Github,
+        label: 'GitHub',
+        value: 'github.com/1tsadityaraj',
+        href: 'https://github.com/1tsadityaraj',
+        note: 'Code & projects',
+    },
+    {
+        icon: Linkedin,
+        label: 'LinkedIn',
+        value: 'linkedin.com/in/aditya-raj-a1b925285',
+        href: 'https://linkedin.com/in/aditya-raj-a1b925285',
+        note: 'Professional profile',
+    },
+];
 
 const Contact = () => {
-    const contactLinks = [
-        {
-            icon: <Mail size={22} aria-hidden="true" />,
-            label: 'Email',
-            href: 'mailto:heyitsadityaraj@gmail.com',
-            value: 'heyitsadityaraj@gmail.com',
-            color: 'from-blue-500/20 to-cyan-500/20',
-            iconBg: 'bg-blue-500/10',
-            iconColor: 'text-blue-400',
-            hoverColor: 'hover:border-blue-500/30 hover:bg-blue-500/5'
-        },
-        {
-            icon: <Github size={22} aria-hidden="true" />,
-            label: 'GitHub',
-            href: 'https://github.com/1tsadityaraj',
-            value: 'github.com/1tsadityaraj',
-            color: 'from-purple-500/20 to-pink-500/20',
-            iconBg: 'bg-purple-500/10',
-            iconColor: 'text-purple-400',
-            hoverColor: 'hover:border-purple-500/30 hover:bg-purple-500/5'
-        },
-        {
-            icon: <Linkedin size={22} aria-hidden="true" />,
-            label: 'LinkedIn',
-            href: 'https://linkedin.com/in/aditya-raj-a1b925285',
-            value: 'linkedin.com/in/aditya-raj-a1b925285',
-            color: 'from-emerald-500/20 to-teal-500/20',
-            iconBg: 'bg-emerald-500/10',
-            iconColor: 'text-emerald-400',
-            hoverColor: 'hover:border-emerald-500/30 hover:bg-emerald-500/5'
-        }
-    ];
-
     return (
-        <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden" aria-label="Contact information">
-            {/* Section Divider — decorative */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
-            
-            {/* Background — decorative */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] -z-10" aria-hidden="true" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] -z-10" aria-hidden="true" />
+        <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-            <div className="max-w-3xl mx-auto px-6 relative z-10">
+            <div className="max-w-2xl mx-auto px-6 relative z-10">
+
+                {/* Heading */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    viewport={{ once: true, margin: '-80px' }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-12"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
-                        Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Touch</span>
-                    </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6" aria-hidden="true" />
-                    <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                        I'm open to internships, entry-level opportunities, and collaboration. Feel free to reach out if you'd like to connect.
+                    <p className="text-xs tracking-[0.18em] uppercase text-slate-500 mb-3">/ contact</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">Let's talk</h2>
+                    <p className="mt-4 text-slate-400 text-lg leading-relaxed">
+                        I'm looking for internships and entry-level roles. If you're building something
+                        interesting or just want to connect — my inbox is open.
                     </p>
                 </motion.div>
 
+                {/* Contact rows — clean, no colored gradient headers */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
-                    className="space-y-4 mb-10"
-                    role="list"
-                    aria-label="Contact methods"
-                >
-                    {contactLinks.map((link, index) => (
-                        <div key={link.label} className="relative group/container" role="listitem">
-                            <MagneticButton
-                                as="a"
-                                href={link.href}
-                                target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-                                rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 + index * 0.1, type: "spring", stiffness: 100 }}
-                                whileHover={{ x: 8 }}
-                                onClick={(e) => {
-                                    if (link.label === 'Email') {
-                                        e.preventDefault();
-                                        navigator.clipboard.writeText(link.value);
-                                        const tooltip = document.getElementById('copy-tooltip');
-                                        if (tooltip) {
-                                            tooltip.style.opacity = '1';
-                                            setTimeout(() => tooltip.style.opacity = '0', 2000);
-                                        }
-                                        window.location.href = link.href;
-                                    }
-                                }}
-                                className={`group relative flex items-center gap-5 p-5 w-full rounded-xl bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-sm border border-white/10 ${link.hoverColor} transition-all duration-300 overflow-hidden`}
-                                aria-label={link.label === 'Email' ? `Send email to ${link.value}` : `Visit ${link.label}: ${link.value} (opens in new tab)`}
-                            >
-                                {/* Gradient overlay — decorative */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} aria-hidden="true" />
-                                
-                                {/* Icon */}
-                                <motion.div 
-                                    className={`relative z-10 p-3 rounded-xl ${link.iconBg} border border-white/10 group-hover:border-white/20 transition-all ${link.iconColor}`}
-                                    whileHover={{ rotate: [0, -5, 5, 0] }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    {link.icon}
-                                </motion.div>
-
-                                {/* Content */}
-                                <div className="flex-1 relative z-10 text-left">
-                                    <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5 group-hover:text-slate-400 transition-colors flex items-center gap-2">
-                                        {link.label}
-                                        {link.label === 'Email' && (
-                                            <span id="copy-tooltip" className="bg-blue-500 text-white text-[10px] px-2 py-0.5 rounded-full opacity-0 transition-opacity duration-300 font-bold" role="status" aria-live="polite">Copied!</span>
-                                        )}
-                                    </div>
-                                    <div className="text-white text-lg font-medium group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all">
-                                        {link.value}
-                                    </div>
-                                </div>
-
-                                {/* Arrow indicator — decorative */}
-                                <motion.div
-                                    className="relative z-10 text-slate-600 group-hover:text-white transition-colors"
-                                    aria-hidden="true"
-                                >
-                                    <ArrowRight size={18} />
-                                </motion.div>
-                            </MagneticButton>
-                        </div>
-                    ))}
-                </motion.div>
-
-                {/* Response Time Indicator */}
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 12 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.6 }}
-                    className="flex items-center justify-center gap-2 text-slate-400 text-sm"
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="divide-y divide-slate-800/60"
                 >
-                    <Clock size={16} className="text-slate-500" aria-hidden="true" />
-                    <span>I usually respond within a day.</span>
+                    {links.map((link, index) => {
+                        const Icon = link.icon;
+                        return (
+                            <motion.a
+                                key={link.label}
+                                href={link.href}
+                                target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                                rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.15 + index * 0.08 }}
+                                className="group flex items-center gap-5 py-5 hover:bg-white/[0.02] -mx-3 px-3 rounded-lg transition-colors duration-200"
+                            >
+                                <div className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700/60 flex items-center justify-center text-slate-400 group-hover:text-slate-200 group-hover:border-slate-600 transition-colors flex-shrink-0">
+                                    <Icon size={16} />
+                                </div>
+
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-xs text-slate-500 mb-0.5">{link.note}</p>
+                                    <p className="text-slate-200 text-sm font-medium truncate group-hover:text-white transition-colors">
+                                        {link.value}
+                                    </p>
+                                </div>
+
+                                <span className="text-slate-600 group-hover:text-slate-400 text-xs transition-colors flex-shrink-0">
+                                    {link.label} ↗
+                                </span>
+                            </motion.a>
+                        );
+                    })}
                 </motion.div>
+
+                {/* Response note — plain text, no icon badge */}
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                    className="mt-10 text-slate-600 text-sm border-t border-slate-800/60 pt-6"
+                >
+                    I usually reply within a day. If it's been longer, feel free to follow up.
+                </motion.p>
             </div>
         </section>
     );
