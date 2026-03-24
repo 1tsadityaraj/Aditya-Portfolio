@@ -48,7 +48,10 @@ const Projects = () => {
     );
 };
 
-const FeaturedCard = ({ project, index }) => (
+const FeaturedCard = ({ project, index }) => {
+    const reversed = index % 2 !== 0;
+
+    return (
     <motion.article
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -57,22 +60,19 @@ const FeaturedCard = ({ project, index }) => (
         className="group grid md:grid-cols-2 gap-0 rounded-2xl border border-white/7 overflow-hidden bg-slate-900/50 hover:border-white/12 transition-colors duration-300"
     >
         {/* Image */}
-        <div className="relative h-56 md:h-auto overflow-hidden bg-slate-800">
+        <div className={`relative h-56 md:h-auto overflow-hidden bg-slate-800 ${reversed ? 'md:order-2' : ''}`}>
             <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover object-top group-hover:scale-[1.04] transition-transform duration-500"
                 loading={index === 0 ? 'eager' : 'lazy'}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-900/60 md:block hidden" />
+            <div className={`absolute inset-0 md:block hidden ${reversed ? 'bg-gradient-to-l from-transparent to-slate-900/60' : 'bg-gradient-to-r from-transparent to-slate-900/60'}`} />
         </div>
 
         {/* Content */}
-        <div className="p-7 flex flex-col justify-between">
+        <div className={`p-7 flex flex-col justify-between ${reversed ? 'md:order-1' : ''}`}>
             <div>
-                <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs text-amber-400/80 tracking-widest uppercase font-medium">Featured</span>
-                </div>
                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-slate-100 transition-colors">
                     {project.title}
                 </h3>
@@ -120,7 +120,8 @@ const FeaturedCard = ({ project, index }) => (
             </div>
         </div>
     </motion.article>
-);
+    );
+};
 
 const SmallCard = ({ project, index }) => (
     <motion.article

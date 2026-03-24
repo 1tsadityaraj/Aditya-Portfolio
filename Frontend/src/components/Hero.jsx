@@ -81,7 +81,7 @@ const Hero = () => {
                     <MagneticButton
                         as="a"
                         href="#projects"
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-slate-900 font-semibold text-sm hover:bg-slate-100 transition-colors"
+                        className="flex items-center gap-2 px-6 py-3 rounded-lg border border-white/15 text-white font-medium text-sm hover:bg-white/5 hover:border-white/25 transition-all"
                     >
                         View Projects
                         <ArrowRight size={16} />
@@ -92,7 +92,7 @@ const Hero = () => {
                         href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 rounded-lg border border-white/10 text-slate-300 font-medium text-sm hover:bg-white/5 hover:border-white/20 transition-all"
+                        className="flex items-center gap-2 px-6 py-3 rounded-lg border border-white/15 text-white font-medium text-sm hover:bg-white/5 hover:border-white/25 transition-all"
                     >
                         Download Resume
                     </MagneticButton>
