@@ -31,7 +31,7 @@ const Contact = () => {
         <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-            <div className="max-w-2xl mx-auto px-6 relative z-10">
+            <div className="max-w-5xl mx-auto px-6 relative z-10">
 
                 {/* Heading */}
                 <motion.div
@@ -65,8 +65,8 @@ const Contact = () => {
                                 href={link.href}
                                 target={link.href.startsWith('mailto') ? undefined : '_blank'}
                                 rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                                initial={{ opacity: 0, x: -10 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 12 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.15 + index * 0.08 }}
                                 className="group flex items-center gap-5 py-5 hover:bg-white/[0.02] -mx-3 px-3 rounded-lg transition-colors duration-200"

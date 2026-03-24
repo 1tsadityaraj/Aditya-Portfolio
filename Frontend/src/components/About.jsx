@@ -17,18 +17,17 @@ const About = () => {
             {/* Subtle background glow — muted, not SaaS-loud */}
             <div className="absolute top-1/4 right-0 w-[400px] h-[400px] bg-slate-800/30 rounded-full blur-[160px] -z-10" />
 
-            <div className="max-w-3xl mx-auto px-6 relative z-10">
+            <div className="max-w-5xl mx-auto px-6 relative z-10">
                 {/* Heading */}
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.5 }}
-                    className="mb-12"
+                    className="mb-14"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold text-white">
-                        About
-                    </h2>
+                    <p className="text-xs tracking-[0.18em] uppercase text-slate-500 mb-3">/ about</p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">About</h2>
                 </motion.div>
 
                 {/* Body copy — casual, first-person, honest */}
@@ -132,8 +131,8 @@ const About = () => {
                         {stack.map((item, i) => (
                             <motion.div
                                 key={item.label}
-                                initial={{ opacity: 0, x: -8 }}
-                                whileInView={{ opacity: 1, x: 0 }}
+                                initial={{ opacity: 0, y: 8 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.45 + i * 0.06, duration: 0.4 }}
                                 className="flex items-center justify-between py-3 border-b border-slate-800/40 group"

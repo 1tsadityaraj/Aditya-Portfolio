@@ -12,7 +12,7 @@ const Hero = () => {
             <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-slate-800/40 rounded-full blur-[160px] -z-10" />
             <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-slate-700/20 rounded-full blur-[140px] -z-10" />
 
-            <div className="max-w-4xl mx-auto px-6 relative z-10">
+            <div className="max-w-5xl mx-auto px-6 relative z-10">
 
                 {/* Profile + availability — left-aligned feels more personal */}
                 <motion.div

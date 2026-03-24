@@ -11,7 +11,7 @@ const Projects = () => {
         <section id="projects" className="py-24 bg-slate-950 relative overflow-hidden">
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-            <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <div className="max-w-5xl mx-auto px-6 relative z-10">
 
                 {/* Heading — no stars, no gradient title */}
                 <motion.div

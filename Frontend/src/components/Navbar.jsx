@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -10,10 +10,10 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
-            
+
             const sections = ['home', 'about', 'projects', 'skills', 'contact'];
             const scrollPosition = window.scrollY + 100;
-            
+
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
@@ -25,7 +25,7 @@ const Navbar = () => {
                 }
             }
         };
-        
+
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
@@ -39,97 +39,71 @@ const Navbar = () => {
     ];
 
     return (
-        <motion.nav 
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                scrolled 
-                    ? 'glass py-4 shadow-2xl shadow-black/20 backdrop-blur-xl border-b border-white/5' 
+        <nav
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                scrolled
+                    ? 'bg-slate-950/80 backdrop-blur-md py-4 border-b border-white/7'
                     : 'bg-transparent py-6'
             }`}
             role="navigation"
             aria-label="Main navigation"
         >
-            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                <motion.a 
+            <div className="max-w-5xl mx-auto px-6 flex justify-between items-center">
+                {/* Logo — plain text, no gradient */}
+                <a
                     href="#home"
-                    whileHover={{ scale: 1.05 }}
-                    className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 hover:from-blue-300 hover:via-purple-400 hover:to-pink-400 transition-all relative group"
+                    className="text-sm font-semibold text-slate-300 hover:text-white transition-colors tracking-wide"
                     aria-label="Aditya Raj — back to top"
                 >
-                    <span className="relative z-10">Aditya.dev</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-blue-400/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity -z-10" aria-hidden="true" />
-                </motion.a>
+                    Aditya Raj
+                </a>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex items-center space-x-2" role="menubar">
+                {/* Desktop links */}
+                <div className="hidden md:flex items-center gap-1" role="menubar">
                     {navLinks.map((link) => {
                         const isActive = activeSection === link.id;
                         return (
-                            <motion.a
+                            <a
                                 key={link.name}
                                 href={link.href}
-                                whileHover={{ y: -2 }}
-                                className={`relative px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-all ${
-                                    isActive 
-                                        ? 'text-white' 
-                                        : 'text-slate-300 hover:text-white'
+                                className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
+                                    isActive
+                                        ? 'text-white bg-white/[0.06]'
+                                        : 'text-slate-500 hover:text-slate-200'
                                 }`}
                                 role="menuitem"
                                 aria-current={isActive ? 'true' : undefined}
                             >
-                                <span className="relative z-10">{link.name}</span>
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="activeSection"
-                                        className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg border border-white/10 -z-10"
-                                        initial={false}
-                                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                                        aria-hidden="true"
-                                    />
-                                )}
-                                {!isActive && (
-                                    <motion.div
-                                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 rounded-full -z-10"
-                                        whileHover={{ 
-                                            background: 'linear-gradient(to right, rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.5), rgba(236, 72, 153, 0.5))'
-                                        }}
-                                        transition={{ duration: 0.3 }}
-                                        aria-hidden="true"
-                                    />
-                                )}
-                            </motion.a>
+                                {link.name}
+                            </a>
                         );
                     })}
-                    <motion.a
+
+                    <a
                         href="https://github.com/1tsadityaraj"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="ml-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 hover:from-blue-500/30 hover:to-purple-500/30 text-white px-5 py-2 rounded-full transition-all flex items-center gap-2 border border-white/10 backdrop-blur-sm shadow-lg"
-                        aria-label="View GitHub profile (opens in new tab)"
+                        className="ml-4 flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm text-slate-400 border border-white/10 hover:text-white hover:border-white/20 transition-all"
+                        aria-label="GitHub"
                     >
-                        <Github size={18} aria-hidden="true" />
+                        <Github size={15} />
                         <span>GitHub</span>
-                    </motion.a>
+                    </a>
                 </div>
 
-                {/* Mobile Toggle */}
-                <motion.button
-                    className="md:hidden text-slate-200 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                {/* Mobile toggle — simple, no spring */}
+                <button
+                    className="md:hidden text-slate-400 hover:text-white p-2 transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                    aria-label={isOpen ? 'Close menu' : 'Open menu'}
                     aria-expanded={isOpen}
                     aria-controls="mobile-menu"
                 >
-                    {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
-                </motion.button>
+                    {isOpen ? <X size={22} /> : <Menu size={22} />}
+                </button>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile menu — simple fade, no x-slide */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -137,65 +111,42 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="md:hidden glass border-t border-white/10 backdrop-blur-xl"
+                        transition={{ duration: 0.2 }}
+                        className="md:hidden border-t border-white/7 bg-slate-950/95 backdrop-blur-md"
                         role="menu"
                     >
-                        <div className="flex flex-col p-6 space-y-3">
-                            {navLinks.map((link, index) => (
-                                <motion.a
+                        <div className="flex flex-col p-5 gap-1">
+                            {navLinks.map((link) => (
+                                <a
                                     key={link.name}
                                     href={link.href}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className={`text-slate-300 hover:text-white text-lg font-medium py-2 px-4 rounded-lg transition-colors ${
-                                        activeSection === link.id ? 'bg-white/10 text-white' : ''
+                                    className={`text-sm py-2.5 px-3 rounded-md transition-colors ${
+                                        activeSection === link.id
+                                            ? 'text-white bg-white/[0.06]'
+                                            : 'text-slate-400 hover:text-white'
                                     }`}
                                     onClick={() => setIsOpen(false)}
                                     role="menuitem"
                                 >
                                     {link.name}
-                                </motion.a>
+                                </a>
                             ))}
-                            <div className="flex gap-4 pt-4 border-t border-white/10">
-                                <motion.a 
+                            <div className="flex gap-3 pt-3 mt-2 border-t border-white/7">
+                                <a
                                     href="https://github.com/1tsadityaraj"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors"
-                                    aria-label="GitHub (opens in new tab)"
+                                    className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
+                                    aria-label="GitHub"
                                 >
-                                    <Github size={20} className="text-slate-300" aria-hidden="true" />
-                                </motion.a>
-                                <motion.a 
-                                    href="https://linkedin.com/in/aditya-raj-a1b925285"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors"
-                                    aria-label="LinkedIn (opens in new tab)"
-                                >
-                                    <Linkedin size={20} className="text-slate-300" aria-hidden="true" />
-                                </motion.a>
-                                <motion.a 
-                                    href="mailto:heyitsadityaraj@gmail.com"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-colors"
-                                    aria-label="Send email to heyitsadityaraj@gmail.com"
-                                >
-                                    <Mail size={20} className="text-slate-300" aria-hidden="true" />
-                                </motion.a>
+                                    <Github size={16} /> GitHub
+                                </a>
                             </div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </motion.nav>
+        </nav>
     );
 };
 
