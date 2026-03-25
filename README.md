@@ -1,6 +1,6 @@
 <div align="center">
 
-# Aditya Raj 🚀
+# Aditya Raj 
 ### Full Stack Developer (React | Node.js | Next.js | AI Integrations)
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-adityaraj.dev-blue?style=for-the-badge&logo=react)](https://adityaraj.dev)
