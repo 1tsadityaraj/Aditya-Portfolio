@@ -60,7 +60,7 @@ const FeaturedCard = ({ project, index }) => {
         className="group grid md:grid-cols-2 gap-0 rounded-2xl border border-white/7 overflow-hidden bg-slate-900/50 hover:border-white/12 transition-colors duration-300"
     >
         {/* Image */}
-        <div className={`relative h-56 md:h-auto overflow-hidden bg-slate-800 ${reversed ? 'md:order-2' : ''}`}>
+        <div className={`relative h-56 md:h-auto overflow-hidden bg-slate-800 ${reversed ? 'md:order-last' : ''}`}>
             <img
                 src={project.image}
                 alt={project.title}
@@ -71,7 +71,7 @@ const FeaturedCard = ({ project, index }) => {
         </div>
 
         {/* Content */}
-        <div className={`p-7 flex flex-col justify-between ${reversed ? 'md:order-1' : ''}`}>
+        <div className="p-7 flex flex-col justify-between">
             <div>
                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-slate-100 transition-colors">
                     {project.title}
