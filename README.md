@@ -17,7 +17,7 @@
 
 A **minimalist, developer-focused portfolio** built with **React 19**, **Vite**, **Tailwind CSS 4**, and **Framer Motion** — designed to load fast, read clean, and give recruiters everything they need in under 60 seconds.
 
-> **🟢 Currently open to full-time Software Engineering & Full Stack Developer roles (remote / India-based).**
+> **🟢 Currently looking for Software Engineering internships (remote / India-based).**
 
 ---
 
@@ -147,7 +147,7 @@ The dev server starts at `http://localhost:5173`.
 
 ## 📬 Get in Touch
 
-I'm actively looking for **full-time Software Engineering and Full Stack Developer roles**. If my work resonates with what your team is building, I'd love to connect.
+I'm actively looking for **Software Engineering and Full Stack Developer internships**. If my work resonates with what your team is building, I'd love to connect.
 
 - 📧 **Email:** [heyitsadityaraj@gmail.com](mailto:heyitsadityaraj@gmail.com)
 - 💼 **LinkedIn:** [linkedin.com/in/aditya-raj-a1b925285](https://linkedin.com/in/aditya-raj-a1b925285)

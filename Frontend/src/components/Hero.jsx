@@ -38,7 +38,7 @@ const Hero = () => {
                     <div>
                         <div className="flex items-center gap-2 mb-0.5">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
-                            <span className="text-emerald-400 text-sm">Available for hire</span>
+                            <span className="text-emerald-400 text-sm">Available for internships</span>
                         </div>
                         <p className="text-slate-500 text-sm">Based in India · Open to remote</p>
                     </div>
@@ -55,7 +55,7 @@ const Hero = () => {
                         Aditya Raj
                     </h1>
                     <p className="mt-3 text-2xl md:text-3xl text-slate-400 font-light">
-                        Full Stack Developer
+                        Full Stack Developer <span className="text-slate-600 hidden sm:inline">· 3rd Year CSE</span>
                     </p>
                 </motion.div>
 
@@ -89,7 +89,7 @@ const Hero = () => {
 
                     <MagneticButton
                         as="a"
-                        href="/resume.pdf"
+                        href="/Adityaraj-resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-6 py-3 rounded-lg border border-white/15 text-slate-200 font-medium text-sm hover:bg-white/5 hover:border-white/25 transition-all"
