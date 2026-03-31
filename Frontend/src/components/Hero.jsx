@@ -40,7 +40,7 @@ const Hero = () => {
                             <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
                             <span className="text-emerald-400 text-sm">Available for internships</span>
                         </div>
-                        <p className="text-slate-500 text-sm">Based in India · Open to remote</p>
+                
                     </div>
                 </motion.div>
 
@@ -55,7 +55,7 @@ const Hero = () => {
                         Aditya Raj
                     </h1>
                     <p className="mt-3 text-2xl md:text-3xl text-slate-400 font-light">
-                        Full Stack Developer <span className="text-slate-600 hidden sm:inline">· 3rd Year CSE</span>
+                        Full Stack Developer <span className="text-slate-600 hidden sm:inline">· 3rd Year  CSE</span>
                     </p>
                 </motion.div>
 
