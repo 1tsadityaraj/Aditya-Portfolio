@@ -55,7 +55,7 @@ const Hero = () => {
                         Aditya Raj
                     </h1>
                     <p className="mt-3 text-2xl md:text-3xl text-slate-400 font-light">
-                        Full Stack Developer <span className="text-slate-600 hidden sm:inline">· 3rd Year  CSE</span>
+                        Full Stack Developer <span className="text-slate-600 hidden sm:inline">· 3rd Year B.Tech CSE</span>
                     </p>
                 </motion.div>
 
