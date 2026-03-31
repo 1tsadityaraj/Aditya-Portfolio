@@ -17,7 +17,7 @@
 
 A **minimalist, developer-focused portfolio** built with **React 19**, **Vite**, **Tailwind CSS 4**, and **Framer Motion** — designed to load fast, read clean, and give recruiters everything they need in under 60 seconds.
 
-> **🟢 Currently looking for Software Engineering internships (remote / India-based).**
+> **🟢 Currently looking for Software Engineering internships.**
 
 ---
 
