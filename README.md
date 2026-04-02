@@ -150,8 +150,7 @@ I'm actively looking for **Software Engineering and Full Stack Developer interns
 
 - 📧 **Email:** [heyitsadityaraj@gmail.com](mailto:heyitsadityaraj@gmail.com)
 - 💼 **LinkedIn:** [linkedin.com/in/aditya-raj-a1b925285](https://linkedin.com/in/aditya-raj-a1b925285)
-- 🐦 **X (Twitter):** [@1tsAdityaRaj](https://twitter.com/1tsAdityaRaj)
-- 🌐 **Portfolio:** [adityaraj.dev](https://adityaraj.dev)
+
 
 ---
 
