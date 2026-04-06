@@ -2,7 +2,7 @@
 
 # Aditya Raj — Portfolio
 
-### Full Stack Developer · React · Node.js · Next.js · AI Integrations
+### Full Stack Developer · React · Node.js · Next.js · AI Integration
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/aditya-raj-a1b925285)
 [![GitHub](https://img.shields.io/badge/GitHub-1tsadityaraj-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/1tsadityaraj)
